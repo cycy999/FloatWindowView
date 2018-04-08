@@ -15,7 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: BaseViewController())
+        window?.makeKeyAndVisible()
+        
+        let floatView = FloatBackground()
+        floatView.frame = CGRect(x: 0, y: 100, width: 50, height: 50)
+        floatView.layer.cornerRadius = 25
+        floatView.layer.masksToBounds = true
+        window?.addSubview(floatView)
+        window?.bringSubview(toFront: floatView)
+        
         return true
     }
 
